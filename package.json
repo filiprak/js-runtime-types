@@ -1,0 +1,51 @@
+{
+  "name": "js-runtime-types",
+  "version": "0.0.1",
+  "description": "Javascript helpers for runtime type check and validation",
+  "main": "src/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/filiprak/js-runtime-types.git"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server --mode development --config webpack.dev.js",
+    "build": "webpack --mode production --config webpack.prod.js",
+    "test": "jest",
+    "release": "release-it",
+    "release:dry": "release-it --dry-run",
+    "release:minor": "release-it minor",
+    "release:major": "release-it major",
+    "release:patch": "release-it patch"
+  },
+  "keywords": [
+    "runtime",
+    "types",
+    "check",
+    "validation",
+    "class",
+    "object"
+  ],
+  "author": "Filip Rak",
+  "license": "MIT",
+  "release-it": {
+    "npm": {
+      "publish": true,
+      "ignoreVersion": false
+    },
+    "git": {
+      "commitMessage": "Release v${version}",
+      "requireCleanWorkingDir": false
+    },
+    "hooks": {
+      "before:init": [
+        "npm run build"
+      ],
+      "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
