@@ -9,9 +9,16 @@ module.exports = {
         ],
     },
     plugins: [
-        new HtmlWebpackPlugin({inject: true, template: './docs/src/index.html'}),
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './docs/src/index.html',
+        }),
     ],
     resolve: {
         extensions: ['.js', '.json'],
+    },
+    devServer: {
+        contentBase: path.join(__dirname, 'docs/iframe'),
+        port: 8080,
     },
 };

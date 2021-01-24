@@ -8,44 +8,28 @@
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 
-    <title>Js Runtime Types Docs</title>
+    <title>Iframe</title>
 </head>
 <body>
 
 <div id="app">
-    <a href="iframe.html">iframe</a>
+    <a href="/">root</a>
     <ul>
         <li v-for="user in users">[{{user.getFullname()}}] [{{user.id}}] {{user.name}} {{user.surname}}</li>
     </ul>
-    <iframe src="http://localhost:8080/iframe.html">
-
-    </iframe>
 </div>
 
+<script src="main.js"></script>
 </body>
 <script>
 
-    const u01 = new User({id: '1', name: 'Adam', surname: 'Kowalski'});
-    const u02 = new User({id: '2', name: 'Jan', surname: 'Grzesiuk'});
-    const u03 = new User({id: '3', name: 'Stanisław', surname: 'Zań'});
-    const p01 = new Person({name: 'This is', surname: 'Person'});
-
-    const Test = Vue.component('Test', {
-        template: `
-            <div>{{ test }}</div>`,
-        props: {
-            test: {
-                type: Boolean,
-                default: null,
-            },
-        },
-    });
+    const u01 = new User({id: '1', name: 'Iframe', surname: 'User'});
 
     const app = new Vue({
         el: '#app',
         data: function () {
             return {
-                users: [u01, u02, u03],
+                users: [u01],
             };
         },
         created: function () {
